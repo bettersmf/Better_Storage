@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification">
+  <id>bettersmf:better-storage-forum-attachments</id>
+  <version>0.1.0</version>
+  <file name="$sourcedir/ShowAttachments.php">
+    <operation>
+      <search position="before"><![CDATA[
+	// No point in a nicer message, because this is supposed to be an attachment anyway...
+	if (empty($file['exists']))
+]]></search>
+      <add><![CDATA[
+	// Better Storage: after SMF has completed its normal attachment permission checks,
+	// allow the central storage layer to serve an S3-backed attachment.
+	if (function_exists('betterstorage_serve_forum_attachment'))
+		betterstorage_serve_forum_attachment((int) $file['id_attach']);
+
+]]></add>
+    </operation>
+  </file>
+</modification>

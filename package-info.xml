@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "https://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+  <id>bettersmf:better-storage</id>
+  <name>Better Storage</name>
+  <version>0.1.0</version>
+  <type>modification</type>
+  <install for="2.1.7-2.1.8">
+    <readme>README.txt</readme>
+    <require-file name="Sources/BetterStorage.php" destination="$sourcedir" />
+    <require-file name="Themes/default/BetterStorage.template.php" destination="$themes_dir/default" />
+    <require-file name="Themes/default/languages/BetterStorage.english.php" destination="$themes_dir/default/languages" />
+    <require-file name="Themes/default/images/admin/better_storage.png" destination="$themes_dir/default/images/admin" />
+    <require-file name="Themes/default/images/admin/big/better_storage.png" destination="$themes_dir/default/images/admin/big" />
+    <modification type="file">better_storage_forum_attachments.xml</modification>
+    <code>install.php</code>
+  </install>
+  <upgrade for="2.1.7-2.1.8" from="0.1.0-dev1,0.1.0-dev2,0.1.0-dev3,0.1.0-dev4,0.1.0-dev5,0.1.0-dev6,0.1.0-dev7,0.1.0-dev8,0.1.0-dev9,0.1.0-dev10">
+    <require-file name="Sources/BetterStorage.php" destination="$sourcedir" />
+    <require-file name="Themes/default/BetterStorage.template.php" destination="$themes_dir/default" />
+    <require-file name="Themes/default/languages/BetterStorage.english.php" destination="$themes_dir/default/languages" />
+    <require-file name="Themes/default/images/admin/better_storage.png" destination="$themes_dir/default/images/admin" />
+    <require-file name="Themes/default/images/admin/big/better_storage.png" destination="$themes_dir/default/images/admin/big" />
+    <modification type="file">better_storage_forum_attachments.xml</modification>
+    <code>install.php</code>
+  </upgrade>
+  <uninstall for="2.1.7-2.1.8">
+    <readme>README.txt</readme>
+    <code>uninstall-required.php</code>
+    <modification type="file" reverse="true">better_storage_forum_attachments.xml</modification>
+    <database>uninstall-data.php</database>
+    <remove-file name="$sourcedir/BetterStorage.php" />
+    <remove-file name="$themes_dir/default/BetterStorage.template.php" />
+    <remove-file name="$themes_dir/default/languages/BetterStorage.english.php" />
+    <remove-file name="$themes_dir/default/images/admin/better_storage.png" />
+    <remove-file name="$themes_dir/default/images/admin/big/better_storage.png" />
+  </uninstall>
+</package-info>
